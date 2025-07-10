@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import { initDatabase } from './main-database';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -20,11 +20,6 @@ const databaseConnect = async () => {
         console.log(
             '\nSuccessful connection to the database.\n----------------------------------\n'
         );
-
-        initDatabase();
-
-        await sequelize.sync();
-        console.log('\nModel synchronization completed.\n----------------------------------\n');
     } catch (error) {
         const err = error as Error;
         console.error(
